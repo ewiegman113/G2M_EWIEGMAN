@@ -8,6 +8,8 @@ import java.util.List;
 /**
  * The Class CitrixWebElement, implementing the WebElement interface
  * so we can override the standard methods to behave in desired way.
+ *
+ * TODO: This is a stub, to be finished once it is truly understood what is needed.
  */
 public class CitrixWebElement implements WebElement {
 
