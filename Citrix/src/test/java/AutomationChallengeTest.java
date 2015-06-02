@@ -178,6 +178,8 @@ public class AutomationChallengeTest {
         );
     }
 
+    //TODO: The following methods are generic utilty ones, and should be moved to a different file.
+
     /**
      * Returns the old fashioned timezone (such as 'PDT' or 'PST' for input)
      *
@@ -204,6 +206,8 @@ public class AutomationChallengeTest {
         //RETURNS the short old-fashioned code such as "PDT"
         return serverTimeShortTZ;
     }
+
+    //TODO: Add missing JavaDoc for below ...
 
     private Properties getPropertiesFromClasspath(String propFileName) throws IOException {
         Properties props = new Properties();
