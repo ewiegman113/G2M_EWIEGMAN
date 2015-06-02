@@ -85,7 +85,7 @@ public class AutomationChallengeTest {
 
         String result = "";
 
-        String propFileName = "resources/config.properties";
+        String propFileName = "config.properties";
         Properties prop = getPropertiesFromClasspath(propFileName);
 
         String username = prop.getProperty("email");
