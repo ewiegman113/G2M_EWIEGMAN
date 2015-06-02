@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="AutomationChallengeTest">
+    <test name="AutomationChallengeTest">
+        <classes>
+            <class name="AutomationChallengeTest">
+                <methods>
+                    <include name="testUpcomingWebinarListedCorrectly" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
