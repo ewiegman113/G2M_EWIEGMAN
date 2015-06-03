@@ -1,68 +1,101 @@
-1. This is the README file for the TEST AUTOMATION CHALLENGE presented to Eric Wiegman as part of his consideration
-for the "Lead Software Engineer in Test, (SaaS/Cloud, Web, Mobile)" position at Citrix.
+TABLE OF CONTENTS
+-----------------
+1. Introduction
+2. Statement of Work
+3. Requirements
+4. Notes on Requirements
+5. Project (Location, Structure)
+6. API Documentation (Javadoc)
+7. Command-line Invocation
+8. Output (Expected)
+9. "To Jupiter, and beyond the infinite"
 
-2. I have created a web UI test project using the Selenium WebDriver open-source technology and have used
-Maven as the tool to perform the build and deploy the test (running the TestNG suite with the surefire plugin).
-The client language is Java and the test harness used is TestNG.
+
+1. This is the README file for the TEST AUTOMATION CHALLENGE presented to Eric
+    Wiegman as part of his consideration for the "Lead Software Engineer in
+    Test, (SaaS/Cloud, Web, Mobile)" position at Citrix.
+
+2. I have created a web UI test project using the Selenium WebDriver open-source
+    technology and have used Maven as the tool to perform the build and deploy
+    the test (running the TestNG suite with the surefire plugin). The client
+    language is Java and the test harness used is TestNG.
 
 3. The following requirements were specified for the Project:
-----------------------------------------------------------
+-------------------------------------------------------------
 A. Apply OOP/OOD principles while designing your classes.
-B. Separate test logic and interaction with page elements (page classes). Code should be reusable as much as possible.
+B. Separate test logic and interaction with page elements (page classes).
+    Code should be reusable as much as possible.
 C. Project dependencies should be managed by dependency management tool.
 D. Use Chrome or headless browser for test execution.
 E. Do not store provided user email / password in your code.
-F. Project should contain a README file with instructions how to run tests from command line.
+F. Project should contain a README file with instructions how to run tests from
+   command line.
 G. Publish the project on github and share the link to repository with us.
 
 3.1. Notes on Requirements
 --------------------------
-3.1.A. Object Oriented Principles and Design considerations were applied when designing the java classes.
-3.1.B. Test logic is specified in AutomationChallengeTest.java (src/test/java) and the definitions and
-interactions with page elements are defined in the rest of the /src/main/java files. The one exception
-is a stub file (in with the 'main' files) CitrixWebElement.java, which is there to subclass the standard
-WebElement interface where different behaviours are anticipated.
-3.1.C. Maven is used to manage project dependencies
-3.1.D. It was verbally stated that Firefox browser was also acceptable. I have used that one.
-3.1.E. Further clarification was asked regarding this item and, according to the response, I coded the retrieval
-of the email (username) and password from a property file (/src/main/resources/config.properties) found in the
-classpath.
-3.1.F. This file contains the instructions on how to run the test from command line.
-3.1.G. This project is published on GitHub and the link to the repository has been sent to joel.thames@citrix.com.
-The link to the project (repository) is https://github.com/ewiegman113/G2M_EWIEGMAN
+3.1.A. Object Oriented Principles and Design considerations were applied when
+    designing the java classes.
+3.1.B. Test logic is specified in AutomationChallengeTest.java (src/test/java)
+    and the definitions and interactions with page elements are defined in the
+    rest of the /src/main/java files. The one exception is a stub file (in
+    with the 'main' files) CitrixWebElement.java, which is there to subclass
+    the standard WebElement interface where different behaviours are anticipated.
+3.1.C. Maven is used to manage project dependencies.
+3.1.D. It was verbally stated that Firefox browser was also acceptable. I have
+    used that one.
+3.1.E. Further clarification was asked regarding this item and, according to
+    the response, I coded the retrieval of the email (username) and password
+    from a property file (/src/main/resources/config.properties) found in the
+    classpath.
+3.1.F. This file contains instructions on how to run the test from command line.
+3.1.G. This project is published on GitHub and the link to the repository has
+    been sent to joel.thames@citrix.com. The link to the project (repository) is
+    https://github.com/ewiegman113/G2M_EWIEGMAN.
 
-[See the end of this document for other test cases to be automated for the "Schedule Webinar" page, given more time]
+[See the end of this document for other test cases to be automated for the
+    "Schedule Webinar" page, given more time].
 
-4. The following is a general outline of what was automated
+4. The following is a general outline of what was automated:
 ------------------------------------------------------------
-4.1. Browser is opened to the default starting page where one is requested to log in to "GoToWebinar".
-4.2. The email (username) and password is retrieved from a property file (/src/main/resources/config.properties)
-and used to successfully log in the user.
+4.1. Browser is opened to the default starting page where one is requested to
+    log in to "GoToWebinar".
+4.2. The email (username) and password is retrieved from a property file
+    (/src/main/resources/config.properties) and used to successfully log in the
+    user.
 4.2.1. The credentials are submitted.
 4.3. On the next page (Schedule a Webinar)..
 4.3.1. The title and description are specified for the webinar.
 4.3.2. The type is assumed to be the default 'One Session' style.
-4.3.3. The Date Picker is invoked and the scheduled date set to 3 (three) calendar days from today.
-4.3.4. The start and end times for the webinar are specified (in 12 hour format and noting whether AM or PM).
+4.3.3. The Date Picker is invoked and the scheduled date set to 3 (three)
+    calendar days from today.
+4.3.4. The start and end times for the webinar are specified (in 12 hour format
+    and noting whether AM or PM).
 4.3.5. The Webinar Time Zone is left at the default value.
 4.3.6. The Webinar Language is left at the default value (English).
 4.3.7. The choices are submitted by pressing the 'Schedule' button.
-4.4. On the Manage Webinar page, the My Webinars link (in the left 'Side Bar' navigation tool) is clicked.
-4.5 On the My Webinars page, the following information is retrieved and asserted against expected values. In
-the order performed, if any comparison of actual and expected values fail, an assertion is thrown and the
-test case fails at that point without any further checking of data validity.
-4.5.1. The unique webinar name is listed on the page. (Example: Webinar_Cat)
-4.5.2. The registration date for the webinar is properly noted for the corresponding listing for the recently
-created (uniquely named) webinar. (Example: Tue, Jun 9)
-4.5.3. The start and end registration times for the webinar are properly noted for the corresponding listing
-for the recently created (uniquely named) webinar. (Example: 10:00 PM - 11:30 PM PDT)
+4.4. On the Manage Webinar page, the My Webinars link (in the left 'Side Bar'
+    navigation tool) is clicked.
+4.5 On the My Webinars page, the following information is retrieved and asserted
+    against expected values. In the order performed, if any comparison of actual
+    and expected values fail, an assertion is thrown and the test case fails at
+    that point without any further checking of data validity.
+4.5.1. The unique webinar name is listed on the page. (Example: Webinar_Cat).
+4.5.2. The registration date for the webinar is properly noted for the
+    corresponding listing for the recently created (uniquely named) webinar.
+    (Example: Tue, Jun 9).
+4.5.3. The start and end registration times for the webinar are properly noted
+    for the corresponding listing for the recently created (uniquely named)
+    webinar. (Example: 10:00 PM - 11:30 PM PDT).
 
-Unless otherwise noted, this one test case run was parameterized using the TestNG DataProvider -- with that data
-separated from the code in its own /src/main/java/WebinarDataProvider.java file.
+Unless otherwise noted, this one test case run was parameterized using the
+    TestNG DataProvider -- with that data separated from the code in its own
+    /src/main/java/WebinarDataProvider.java file.
 
-Also, note that I did not perform any cleanup routines (such as Cancelling the automation-created webinar nor
-closing the invoked browser). This was done on purpose so that you might more easily check that the automation
-properly performed the prescribed procedures (consonance?)
+Also, note that I did not perform any cleanup routines (such as Cancelling the
+    automation-created webinar nor closing the invoked browser).
+    This was done on purpose so that you might more easily check that the
+    automation properly performed the prescribed procedures (consonance?)
 
 5. The project is stored on GitHub at public repository G2M_EWIEGMAN.
 5.1 The directory structure is shown below:
@@ -148,31 +181,263 @@ Citrix (root)
         |   java
                 AutomationChallengeTest.java
 
-The Citrix.iml file is not required to run the test, but it shows the classpath information as defined in
-IntelliJ's IDEA IDE that was used to code this exercise. You may safely omit it if desired.
+The Citrix.iml file is not required to run the test, but it shows the classpath
+    information as defined in IntelliJ's IDEA IDE that was used to code this
+    exercise. You may safely omit it if desired.
 
-5.2 Please note that the directory structure is important, and file/directory changes should not be made. Failure
-to leave the structure as is will cause Maven, the surefire plugin, or other tools to not recognize the classpath
-items correctly, leading to failures.
+5.2 Please note that the directory structure is important, and file/directory
+    changes should *not* be made. Failure to leave the structure as is will
+    cause Maven, the surefire plugin, or other tools to not recognize the
+    classpath items correctly, leading to failures.
 
-6. For more information on the defined java elements in this project, invoke index.html at Citrix/docs and use the API
-viewer to read the JavaDoc supplied text.
+6. For more information on the defined java elements in this project, invoke
+    index.html at Citrix/docs and use the API viewer to read the Javadoc
+    supplied text.
 
-7. Command-line invocation.
+7. Command-line invocation
 ---------------------------
-7.1. To call the test from the command line (from within your Windows (DOS) Command Prompt or Macintosh/Linux Terminal),
-you need to ensure some prerequisites have first been met.
-7.1.2. You should have your path set so that it will recognize the Maven binary 'mvn' no matter what directory
-you are currently browsing.
-7.1.3. As it is required by Maven, if you have not already done so then set your JAVA_HOME environment variable
-to be where you installed your Java (for instance, 'C:\Program Files\Java\jdk1.8.0_40' if using defaults for
-Windows installation).
-7.1.4. To simplify the command line call, you should use your Terminal to navigate to the directory where the
-desired pom.xml file is located. For this case, this is the directory 'Citrix'. In that way, the command line call
-will assume there is only one POM file to be run and will assume it is in the current directory.
-7.2. The following is the command line expression to be entered in the Command Prompt or Terminal:
+7.1. To call the test from the command line (from within your Windows (DOS)
+    Command Prompt or Macintosh/Linux Terminal), you need to ensure some
+    prerequisites have first been met.
+7.1.2. You should have your path set so that it will recognize the Maven binary
+    'mvn' no matter which directory you are currently browsing.
+7.1.3. As it is required by Maven, if you have not already done so set your
+    JAVA_HOME environment variable to be where you installed your Java
+    (for instance, 'C:\Program Files\Java\jdk1.8.0_40' if using defaults for
+    Windows installation).
+7.1.4. To simplify the command line call, you should use your Terminal to
+    navigate to the directory where the desired pom.xml file is located.
+    For this case, this is the directory 'Citrix'. In that way, the command line
+    call will assume there is only one POM file to be run and will assume it
+    is in the current directory.
+7.2. The following is the command line text to be entered in the Command Prompt
+    or Terminal:
 
-    mvn compile test
+        mvn compile test
 
 8. Output
 ---------
+8.1. The expected (successful) command line output is shown below:
+
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] Building MySel20Proj 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ MySel20Pro
+j ---
+[debug] execute contextualize
+[WARNING] Using platform encoding (Cp1252 actually) to copy filtered resources,
+i.e. build is platform dependent!
+[INFO] Copying 2 resources
+[INFO]
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ MySel20Proj -
+--
+[WARNING] File encoding has not been set, using platform encoding Cp1252, i.e. b
+uild is platform dependent!
+[INFO] Compiling 13 source files to C:\Users\Eric\Documents\GitHub\G2M_EWIEGMAN
+\Citrix\target\classes
+[INFO]
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ MySel20Pro
+j ---
+[debug] execute contextualize
+[WARNING] Using platform encoding (Cp1252 actually) to copy filtered resources,
+i.e. build is platform dependent!
+[INFO] Copying 2 resources
+[INFO]
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ MySel20Proj -
+--
+[INFO] Nothing to compile - all classes are up to date
+[INFO]
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ My
+Sel20Proj ---
+[debug] execute contextualize
+[WARNING] Using platform encoding (Cp1252 actually) to copy filtered resources,
+i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory C:\Users\Eric\Documents\GitHub\G2M_E
+WIEGMAN\Citrix\src\test\resources
+[INFO]
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ MySel
+20Proj ---
+[WARNING] File encoding has not been set, using platform encoding Cp1252, i.e. b
+uild is platform dependent!
+[INFO] Compiling 1 source file to C:\Users\Eric\Documents\GitHub\G2M_EWIEGMAN\C
+itrix\target\test-classes
+[INFO]
+[INFO] --- maven-surefire-plugin:2.14.1:test (default-test) @ MySel20Proj ---
+[INFO] Surefire report directory: C:\Users\Eric\Documents\GitHub\G2M_EWIEGMAN\C
+itrix\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running TestSuite
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 73.574 sec
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1:43.223s
+[INFO] Finished at: Tue Jun 02 15:39:06 PDT 2015
+[INFO] Final Memory: 21M/79M
+[INFO] ------------------------------------------------------------------------
+
+8.2. At the point where the 'Running TestSuite' is announced, Maven calls
+    surefire, which in turn calls TestNG harness that runs the XML suite in
+    Selenium Java code. This performs the steps outlined in README section 4.
+
+8.3. The directory 'target' is created in the 'Citrix' root, where binaries
+    and pass/fail report files are found:
+
+├───classes
+│       CitrixWebElement.class
+│       config.properties
+│       MeetingDeletionPage.class
+│       MeetingInvitePeoplePage.class
+│       MeetingLoginPage.class
+│       MeetingSchedulingPage.class
+│       MyAccountPage.class
+│       MyMeetingsPage.class
+│       MyWebinarsPage.class
+│       SharedLoginPage.class
+│       testng.xml
+│       WebinarDataProvider.class
+│       WebinarLoginPage.class
+│       WebinarSchedulingPage.class
+│       WebinarsSideBar.class
+│
+├───generated-sources
+│   ├───annotations
+│   └───test-annotations
+├───surefire-reports
+│   │   bullet_point.png
+│   │   collapseall.gif
+│   │   emailable-report.html
+│   │   failed.png
+│   │   index.html
+│   │   jquery-1.7.1.min.js
+│   │   navigator-bullet.png
+│   │   passed.png
+│   │   skipped.png
+│   │   TEST-TestSuite.xml
+│   │   testng-reports.css
+│   │   testng-reports.js
+│   │   testng-results.xml
+│   │   testng.css
+│   │   TestSuite.txt
+│   │
+│   ├───AutomationChallengeTest
+│   │       AutomationChallengeTest.html
+│   │       AutomationChallengeTest.xml
+│   │
+│   ├───junitreports
+│   │       TEST-AutomationChallengeTest.xml
+│   │
+│   └───old
+│       │   index.html
+│       │
+│       └───AutomationChallengeTest
+│               AutomationChallengeTest.properties
+│               classes.html
+│               groups.html
+│               index.html
+│               main.html
+│               methods-alphabetical.html
+│               methods-not-run.html
+│               methods.html
+│               reporter-output.html
+│               testng.xml.html
+│               toc.html
+│
+└───test-classes
+        AutomationChallengeTest.class
+
+8.4. To see a graphical representation of the pass/fail/skip data associated
+    with the testNG Suite run, open the file /target/surefire-reports/index.html
+    in your favorite browser.
+
+9. To Jupiter, and beyond the infinite
+--------------------------------------
+9.1. If given more time, there are many items to be fixed, finished, refactored:
+9.1.1. The Date Picker automation is simplistic and has known issues. Give more
+    time, I would find a more elegant solution.
+9.1.2. The CitrixWebElement.java file needs to minimally implement the sub-
+    classing of WebElement.sendKeys() forvcases such as the entering of the
+    12-hour based time of day for the webinar start or end time. Currently
+    the workaround code found in WebinarSchedulingPage.java would be better
+    moved to that CitrixWebElement.sendKeys() method:
+          String selectAll = Keys.chord(Keys.CONTROL, "a");
+          webinarTime.sendKeys(selectAll);
+          webinarTime.sendKeys(Keys.BACK_SPACE);
+          webinarTime.sendKeys(timeValue);
+
+    Then the webinarTime WebElement would be instead declared as CitrixWebElement
+    and only the last line of that code would be needed -- as the other lines
+    would be moved to the subclass.
+9.1.3. There are other method stubs that involved automation not required for
+    this challenge, so they remain as stubs. Certainly with extra time, I would
+    fill out those stubs.
+9.1.4. Also, I started Page definitions for GoToMeetings (also not required),
+    which would be nice to finish.
+9.1.5. Some utility methods currently residing in the test file
+    AutomationChallengeTest.java should be moved to a separate, new file (where
+    such generic utility methods would reside).
+9.1.6. Some missing Javadoc needs to be done and existing Javadoc polished to
+    shining perfection (?)
+9.1.7. Modify the POM file to include property for <project.build.sourceEncoding>
+    to prevent "[WARNING] Using platform encoding (Cp1252 actually) to copy
+    filtered resources, i.e. build is platform dependent!" in the output.
+
+9.2. But more importantly, you asked me to list	other testcases I would automate
+    for the Schedule Webinar page (https://global.gotowebinar.com/schedule.tmpl)
+    if given more time. Here is a short list:
+   ----------------------------------------------------------------------------
+   A. A large amount of cases that purposely set values that are out of range
+   (28:00 AM as Start time) - or just impossible (schedule the meeting for today,
+   but starting before present time), etc. Certain error messages are expected -
+   and the testcases would check to see if they appeared in the right fashion,
+   with correct text.
+
+   B. Automated testcases that schedule Series and Sequence types of webinars --
+   not just the 'one Session' type, which was automated for this coding
+   challenge.
+
+   C. After scheduling a webinar, use that webinar to act as a template for
+    creating a new one. Ensure the expected values are set as defaults.
+
+   D. Searching for a previously created webinar (with a query that yields no
+    results) should fail with the message, "Failed to load webinars. Please try
+    again."
+
+   E. Add testcases to explicitly test the changing of the Webinar Time Zone
+    (not just going with the default, suggested value).
+
+   F. Add testcases to explicitly test the changing of the Webinar language
+     (not just going with the default, suggested value).
+
+   G. Use the 'Upcoming Webinar' Search DateRange Picker Popup Menu on the 'My
+    'Webinars' page to verify that the proper filtering is performed. (Example:
+    'Tomorrow' or 'Next 30 Days' only shows the appropriate list of webinars).
+
+   H. Verify the cancelling of a Webinar makes it no longer appear in the list
+    of webinars (neither the Upcoming nor the Past lists). Similarly, after
+    cancelling, attempt to join the webinar by Webinar ID (such as 151-146-627)
+    and verify it is disallowed.
+
+   I. A great deal exists for potential automation of testcases involving the
+    'Manage Webinar' screen -- where there are about 16 items that can be
+    Edited. This editing can be done and then the UI verified to assert that
+    the edited data shows as expected.
+
+   J. (Inefficient -- but unless given APIs to do this, I would need to automate
+      with Front-End UI Automation). Schedule about 20 webinars and then
+      view all the Webinar IDs for all listed meetings to ensure there are
+      no duplicates.
+
+   K. Verify that the listed webinar (just created) shows the current registrant
+      count as 0 (zero).
